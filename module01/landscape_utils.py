@@ -9,7 +9,7 @@ import time
 from pathlib import Path
 
 CATALOG = Path(__file__).with_name("models_catalog.json")
-USD_TO_INR = 84.0          # edit
+USD_TO_INR = 94.0          # edit
 DAYS = 30
 
 # ---------------------------------------------------------------- catalog
@@ -55,7 +55,7 @@ def monthly_cost_inr(model: dict, scenario: dict):
     return None if usd is None else round(usd * USD_TO_INR)
 
 
-# --------------------------------------- hard constraints, then weighted score - all bussiness problems is in hard constraints
+# ---------------------------------------------------------------- hard constraints, then weighted score
 def eligible(model: dict, scenario: dict, overrides: dict | None = None) -> tuple[bool, list[str]]:
     m = {**model, **((overrides or {}).get(model["id"], {}))}
     why = []
@@ -84,7 +84,7 @@ def _norm_cost(v, lo, hi):
     every cheap model look identical, so we compare on a log scale."""
     return _norm_low_is_good(math.log1p(v), math.log1p(lo), math.log1p(hi))
 
-
+## ranking score 
 def rank(scenario: dict, catalog: list[dict] | None = None, overrides: dict | None = None):
     """Returns (ranked, excluded). ranked: list of dicts with score 0-100; excluded: list of (name, reasons)."""
     catalog = catalog or load_catalog()

@@ -27,10 +27,5 @@ Some data may not leave your building, or your country, however good and cheap t
 
 ## Three questions to arrive with
 - A bank wants a chatbot for public product questions *and* a system that reads customers' salary slips. Should they use the same model? Why or why not?
----->They require different architecture because reading salary slips involves highly sensitive financial data that must stay on-premises for strict security and compliance, wheneas a public product chatbot requires a fast, scalable cloud model to efficiently handle high-volume public traffic without needing internal data privacy.
-
 - Your laptop can run a small model for free. Why can't it be the FAQ bot for 20,000 calls a day?
----->Use a **secure, on-premises open-weighted model** for the salary slips to gurantee data privacy, and a **fast cloud API** for the public chatbot to handle high traffic affordably.
-
 - A leaderboard says Model A beats Model B by 4 points. What would you still want to check before switching?
-----> Yes u should check it in terms it in terms of ----> cost, speed, quality. Then look at the matrix criteria, then right tool for the job. if it's match for the actual specifiations of your problem statement.
